@@ -1,0 +1,17 @@
+bash commands
+1.pwd-print working directory (base directory)-which directory you are on 
+2.cd- change directory
+3.ls-list of files present in current folder
+4.mkdir-create new folder
+5.touch-create an empty file
+6.cat-to check the content of the file  eg:cat <file Name with extension>
+7.vi- vin terminal
+8.mv-move file from one folder to another  eg:mv file/folderName file/folderName
+9.cp-copy files to other folder eg: cp a.txt test3       ||||| when copy through folder you have to use -  cp -r a.txt test3
+10.nvm-node version manager
+11.npm 
+12.node
+13.git
+
+
+CLI-command line interface

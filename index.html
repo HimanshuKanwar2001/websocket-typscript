@@ -1,0 +1,91 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="heading-todo-list">
+      <h1>Tpdp list</h1>
+    </div>
+    <div id="todo-1">
+      <h4>1.Take class</h4>
+      <button onclick="deleteTodo(1)">Delete</button>
+    </div>
+    <div id="todo-2">
+      <h4>2.Go</h4>
+      <button onclick="deleteTodo(2)">Delete</button>
+    </div>
+    <div id="todo-3">
+      <h4>3.go to gym</h4>
+      <button onclick="deleteTodo(3)">Delete</button>
+    </div>
+    <div>
+      <input type="text" placeholder="Add your todo here" />
+      <button id="btn" onclick="addTodo()">Add Todo</button>
+    </div>
+
+    <script>
+      //fetching element
+      function deleteTodo(index) {
+        const element = document.getElementById("todo-" + index);
+        element.parentNode.removeChild(element);
+      }
+      function addTodo() {
+        var name = "Himanshu";
+        const inputEl = document.querySelector("input");
+        const value = inputEl.value;
+        console.log(value);
+      }
+
+      const divEl = document.createElement("div");
+      divEl.innerHTML = "hi there";
+      document.querySelector("body").appendChild(divEl);
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO Application</title>
+  </head>
+  <body>
+    <h1>TODO LIST</h1>
+    <div id="todo-list"></div>
+    <input type="text" placeholder="Write the todo here" />
+    <button onclick="addToList()" id="btn">Add to List</button>
+
+    <script>
+      //   const inputEl = document.querySelector("input");
+      //   const todoList = document.getElementById("todo-list");
+      //   const value = inputEl.value;
+      function addToList() {
+        const inputEl = document.querySelector("input");
+        const todoList = document.getElementById("todo-list");
+        const value = inputEl.value;
+        let divEl = document.createElement("div");
+        let pEl = document.createElement("p");
+        pEl.innerHTML = value;
+        let btn = document.createElement("button");
+        btn.innerHTML = "Delete";
+        btn.setAttribute("onclick", "deleteList(this)");
+        divEl.appendChild(pEl);
+        divEl.appendChild(btn);
+        todoList.appendChild(divEl);
+      }
+      function deleteList(ele) {
+        // const elementDef = ele.querySelector(ele);
+        const divToDel = ele.parentElement;
+        const parentEl = divToDel.parentElement;
+        console.log(parentEl);
+        parentEl.removeChild(divToDel);
+        console.log("Inside the delete list", ele);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+javascript is a syncronous code.
+means in the written order
+
+
+
+I/O heavy operation
+task based on data transfer  between the program and some hardware
+
+
