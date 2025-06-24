@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <style></style>
+  <body>
+    <h1>TODO List</h1>
+    <h4>1.Take Class</h4>
+    <h4>2.Do Not Take</h4>
+    <h4>3.Let's do Word</h4>
+
+    <input
+      id="data-input"
+      on-change=""
+      type="text"
+      placeholder="Write here..."
+    />
+    <button>Add Todo</button>
+
+    <script>
+      const inputData = document.getElementById("data-input");
+      console.log("inputData", inputData.value);
+
+      const inputEl = document.querySelector("input"); //It will give output of the first element input tag found in the DOM
+      const h1Element = document.querySelector("h1");
+      console.log(h1Element.innerHTML);
+    </script>
+  </body>
+</html>
