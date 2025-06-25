@@ -4,7 +4,7 @@ const App = () => {
   const [messages, setMessages] = useState(["hi there"]);
   const InputRefJoin = useRef<HTMLInputElement>(null);
   const InputRefChat = useRef<HTMLInputElement>(null);
-  const wsRef = useRef<WebSocket>();
+  const wsRef = useRef<WebSocket>(null);
 
   const sendMessageHandler = (value: string) => {
     if (
