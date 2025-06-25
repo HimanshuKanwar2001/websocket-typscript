@@ -1,0 +1,13 @@
+websockets provide a way to establish a persistent full duplex communication channel over a single TCP connection between the clinet (typically a web browser) and the server.
+
+3 days connections
+persistent-can send data again and again suing the same object
+full-duplex communication-both side can send message to each other 
+TCP connection-  
+
+
+
+Layer
+hhtp
+websockets
+webrtc

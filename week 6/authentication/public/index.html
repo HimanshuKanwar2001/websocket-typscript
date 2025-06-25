@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Website</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <script>
+    async function signup() {
+      const signUpUsername = document.getElementById("signup-username").value;
+      const signUpPassword = document.getElementById("signup-password").value;
+      const response = await axios.post("http://localhost:3000/signup", {
+        username: signUpUsername,
+        password: signUpPassword,
+      });
+      console.log(response.data);
+      alert("You are Signed Up");
+    }
+
+    async function getUserInformation() {
+      console.log("Token", localStorage.getItem("token"));
+      const response = await axios.post(
+        "http://localhost:3000/me",
+        {}, // Empty body for the POST request
+        {
+          headers: {
+            token: localStorage.getItem("token"),
+          },
+        }
+      );
+
+      console.log(response.data);
+      const userInfo = document.getElementById("information");
+      userInfo.innerHTML = `<div>Username:  ${response.data.username} Password:  ${response.data.password} </div> `;
+    }
+    getUserInformation();
+
+    function logout() {
+      localStorage.removeItem("token");
+    }
+  </script>
+  <body>
+    <section id="signing">
+      <div>
+        SignUp
+        <input
+          id="signup-username"
+          type="text"
+          name="username"
+          placeholder="Enter Username"
+        />
+        <input
+          id="signup-password"
+          type="text"
+          name="password"
+          placeholder="Enter Password"
+        />
+        <button onclick="signup()">Submit</button>
+      </div>
+      <div>
+        SignIn
+        <input
+          id="signin-username"
+          type="text"
+          name="username"
+          placeholder="Enter Username"
+        />
+        <input
+          id="signin-password"
+          type="text"
+          name="password"
+          placeholder="Enter Password"
+        />
+        <button onclick="signin()">Submit</button>
+      </div>
+    </section>
+
+
+
+    <section id="user-info">
+      <div>
+        User information:
+        <div id="information"></div>
+      </div>
+    </section>
+    <div>
+      <button onclick="logout()">Logout</button>
+    </div>
+    <script>
+      async function signin() {
+        const signInUsername = document.getElementById("signin-username").value;
+        const signInPassword = document.getElementById("signin-password").value;
+        const response = await axios.post("http://localhost:3000/signin", {
+          username: signInUsername,
+          password: signInPassword,
+        });
+        alert("You are Signed In");
+        console.log(response.data);
+        localStorage.setItem("token", response.data.token);
+      }
+    </script>
+  </body>
+</html>
